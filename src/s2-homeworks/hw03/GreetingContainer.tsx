@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
+import React, {ChangeEvent, Dispatch, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
 import {UserType} from './HW3'
 
@@ -7,18 +7,18 @@ type GreetingContainerPropsType = {
     addUserCallback: (name: string) => void // need to fix any
 }
 
-export const pureAddUser = (name: any, setError: any, setName: any, addUserCallback: any) => {
+export const pureAddUser = (name: any, setError: Dispatch<string>, setName: Dispatch<string>, addUserCallback: Dispatch<string>) => {
     addUserCallback(name)
 
 }
 
-export const pureOnBlur = (name: string, setError: any) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: Dispatch<string>) => { // если имя пустое - показать ошибку
     if (name.trim().length === 0) {
         setError('Ошибка! Введите имя!')
     }
 }
 
-export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: any) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: Dispatch<void>) => { // если нажата кнопка Enter - добавить
     if (e.key === "Enter") {
         addUser()
     }
@@ -62,7 +62,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = (
 
     const totalUsers = users.length // need to fix
     // const lastUserName = users[users.length-1].name// need to fix
-    const lastUserName = users.length ? users[users.length - 1].name :''
+    const lastUserName = users.length ? users[users.length - 1].name : ''
 
     return (
         <Greeting

@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {Dispatch, useState} from 'react'
 import {v1} from 'uuid'
 import s2 from '../../s1-main/App.module.css'
 import GreetingContainer from './GreetingContainer'
 import {Hr} from "../../s1-main/App";
+import User from "../hw08/User";
 
 /*
 * 1 - описать тип UserType ++++++++++++++++++++++
@@ -24,7 +25,7 @@ export type UserType = {
     name: string // need to fix any
 }
 
-export const pureAddUserCallback = (name: string, setUsers: any, users: UserType[]) => { // need to fix any
+export const pureAddUserCallback = (name: string, setUsers: Dispatch<UserType[]>, users: UserType[]) => { // need to fix any
     setUsers([...users, {_id: v1(), name}])
 }
 
@@ -38,7 +39,8 @@ const HW3 = () => {
     return (
         <div id={'hw3'}>
 
-            <div className={s2.hwTitle}>Homework #3</div><Hr/>
+            <div className={s2.hwTitle}>Homework #3</div>
+            <Hr/>
             {/*для автоматической проверки дз (не менять)*/}
 
             <div className={s2.hw}>
