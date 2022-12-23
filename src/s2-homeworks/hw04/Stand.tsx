@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import s from './Stand.module.css'
+import sp from './common/c2-SuperButton/SuperButton.module.css'
 import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
 import SuperButton from './common/c2-SuperButton/SuperButton'
@@ -19,11 +20,13 @@ const Stand = () => {
                         id={'hw4-super-input-like-old'}
                         value={stateForAllInputs}
                         onChange={(e) => setValue(e.currentTarget.value)}
+                        // className={}
                     />
                 </div>
                 {/*инпут с ошибкой:*/}
                 <div>
                     <SuperInputText
+
                         id={'hw4-super-input-with-error'}
                         value={stateForAllInputs}
                         onChangeText={setValue}
@@ -43,13 +46,13 @@ const Stand = () => {
             <div className={s.buttons}>
                 {/*обычная кнопка:*/}
                 <div>
-                    <SuperButton id={'hw4-super-button-default'}>
+                    <SuperButton id={'hw4-super-button-default'} className={sp.default}>
                         default
                     </SuperButton>
                 </div>
                 {/*красная кнопка:*/}
                 <div>
-                    <SuperButton id={'hw4-super-button-red'} xType={'red'}>
+                    <SuperButton id={'hw4-super-button-red'} xType={'red'} className={sp.red}>
                         red
                     </SuperButton>
                 </div>
@@ -68,6 +71,7 @@ const Stand = () => {
                     <SuperButton
                         id={'hw4-super-button-secondary'}
                         xType={'secondary'}
+                        className={sp.secondary}
                     >
                         secondary
                     </SuperButton>
