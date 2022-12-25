@@ -44,7 +44,7 @@
     color: #58ACFF;
 }
 
-.nav a.active {
+.nav .active {
     color: #0059B2;
     text-decoration:underline ;
 }
