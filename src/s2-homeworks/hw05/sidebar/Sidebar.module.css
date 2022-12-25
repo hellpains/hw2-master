@@ -8,6 +8,7 @@
 }
 
 .sidebar.open {
+
 }
 
 .background {
@@ -46,14 +47,16 @@
 
 .nav .active {
     color: #0059B2;
-    text-decoration:underline ;
+    text-decoration: underline;
 }
+
 .close {
     margin: 10px 0 20px 80%;
     background: #FFFFFF;
     width: 40px;
     height: 40px;
-    border: none; outline: none;
+    border: none;
+    outline: none;
 }
 
 .close img {

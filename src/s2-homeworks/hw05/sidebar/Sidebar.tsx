@@ -13,13 +13,12 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
 
-    const activeClassName = (params: any) => params.isActive ? s.active : '';
     return (
         <>
             {/*затемнение справа от открытого меню*/}
             {open && <div className={s.background} onClick={handleClose}/>}
 
-            {open &&
+
                 <aside className={sidebarClass}>
                     <button className={s.close} onClick={handleClose}>
                         <img
@@ -34,7 +33,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                             id={'hw5-pre-junior-link'}
                             to={PATH.PRE_JUNIOR}
                             onClick={handleClose}
-                            className={params => params.isActive ? s.active : ''} // делает студент
+                            className={({ isActive }) => (isActive ? s.active : '')}// делает студент
                         >
                             Pre-junior
                         </NavLink>
@@ -42,7 +41,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                             id={'hw5-junior-link'}
                             to={PATH.JUNIOR}
                             onClick={handleClose}
-                            className={params => params.isActive ? s.active : ''} // делает студент
+                            className={({ isActive }) => (isActive ? s.active : '')} // делает студент
                         >
                             Junior
                         </NavLink>
@@ -50,12 +49,12 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                             id={'hw5-junior-plus-link'}
                             to={PATH.JUNIOR_PLUS}
                             onClick={handleClose}
-                            className={params => params.isActive ? s.active : ''} // делает студент
+                            className={({ isActive }) => (isActive ? s.active : '')} // делает студент
                         >
                             Junior Plus
                         </NavLink>
                     </nav>
-                </aside>}
+                </aside>
         </>
     )
 }
